@@ -23,8 +23,12 @@ if($typologies) {
     }
 }
 
-$tax_query[] = array('taxonomy' => $taxo_names_highlights, 'field' => 'ID', 'terms' => $highlights);
-  
+
+if($highlights) {
+    foreach($highlights as $highlight) {
+        $tax_query[] = array('taxonomy' => $taxo_names_highlights, 'field' => 'ID', 'terms' => $highlight);
+    }
+}
 
 if($offre_de_services) {
     foreach($offre_de_services as $offre) {
@@ -38,16 +42,17 @@ if($thematiques) {
     }
 }
 
-
-
 /////// CREATING THE REQUEST
 //////////////
 $args = array(
     'post_type'             => $cpt_names_project,
     'post_status'           => array( 'publish' ),
-    'limit'                 => $limite,            // -1 no limit
-    'tax_query'             => $tax_query
-);
+    'limit'                 => $limite
+    );
+
+if(!empty($tax_query)) {
+    $args['tax_query'] = $tax_query; 
+}
 $get_project_list = new WP_Query( $args );
 
 
