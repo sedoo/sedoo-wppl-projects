@@ -17,15 +17,6 @@ $logo_url = get_field('sedoo_project_logo');
 ?>
 
 <div id="primary" class="content-area">
-        <?php
-            if ( has_post_thumbnail() ) {
-        ?>
-            <header id="cover">
-                <?php the_post_thumbnail('cover'); ?>
-            </header>
-        <?php 
-        }
-        ?>
         <div class="wrapper-layout">    
             <main id="main" class="site-main">
                 <article id="post-<?php the_ID();?>">	
