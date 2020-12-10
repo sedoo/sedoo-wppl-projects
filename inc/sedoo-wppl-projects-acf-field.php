@@ -47,7 +47,7 @@ if( function_exists('acf_add_local_field_group') ):
             array(
                 'key' => 'field_5fca2c4ce0363',
                 'label' => 'Logo',
-                'name' => 'logo',
+                'name' => 'sedoo_project_logo',
                 'type' => 'image',
                 'instructions' => '',
                 'required' => 0,
