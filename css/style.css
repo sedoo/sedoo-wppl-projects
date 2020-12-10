@@ -1,0 +1,13 @@
+.single-sedoo-wppl-project header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.single-sedoo-wppl-project header>div{
+    flex-direction: column;
+    align-items: start !important;
+}
+.single-sedoo-wppl-project header img{
+	max-width: 150px;
+}
