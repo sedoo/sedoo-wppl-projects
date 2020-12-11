@@ -51,7 +51,8 @@ $logo_url = get_field('sedoo_project_logo');
 				$thematiques = get_the_terms( get_the_ID(), $taxo_names_thematiques );
 				$liste_offres = get_the_terms( get_the_ID(), $taxo_names_offre_services);
 				$liste_typologies = get_the_terms( get_the_ID(), $taxo_names_typologie );
-			if(($thematiques != NULL) && ($liste_offres != NULL) && ($liste_typologies != NULL)) {
+			if(($thematiques == NULL) && ($liste_offres == NULL) && ($liste_typologies == NULL)) {}
+			else {
 			?>
 
 				<aside class="contextual-sidebar">
@@ -67,15 +68,15 @@ $logo_url = get_field('sedoo_project_logo');
 						if($liste_offres) {
 							echo '<h2> Offres de services </h2>';
 							foreach($liste_offres as $offre) {
-								echo '<span><a href="'.get_term_link($thematique->term_id).'">#'.esc_html($offre->name).'</a></span>';   
+								echo '<span><a href="'.get_term_link($offre->term_id).'">#'.esc_html($offre->name).'</a></span>';   
 							}
 						}
 					?>
 					<?php 
-						if($typlogies) {
+						if($liste_typologies) {
 							echo '<h2> Typologies </h2>';
 							foreach($liste_typologies as $typlogies) {
-								echo '<span><a href="'.get_term_link($thematique->term_id).'">#'.esc_html($typlogies->name).'</a></span>';   
+								echo '<span><a href="'.get_term_link($typlogies->term_id).'">#'.esc_html($typlogies->name).'</a></span>';   
 							}
 						}
 					?>
