@@ -28,8 +28,13 @@ $logo_url = get_field('sedoo_project_logo');
 								<a title="Site web du projet" target="_blank" href=" <?php echo $site_web; ?>"> <?php echo $site_web; ?> </a>
 							</div>
 						</div>
-						<img src="<?php echo $logo_url; ?>">
-                    </header>
+
+						<?php if($logo_url) { ?>
+							<figure>
+								<img src="<?php echo $logo_url; ?>">
+							</figure>
+						<?php } ?>
+	                </header>
                     <section>
                         <?php the_content(); ?>
                     </section>
@@ -42,37 +47,50 @@ $logo_url = get_field('sedoo_project_logo');
                 </article>
             </main><!-- #main -->
 			
-			<aside class="contextual-sidebar">
-						<h2> Thématiques </h2>
-						<?php 
-							$thematiques = get_the_terms( get_the_ID(), $taxo_names_thematiques );
+			<?php 
+				$thematiques = get_the_terms( get_the_ID(), $taxo_names_thematiques );
+				$liste_offres = get_the_terms( get_the_ID(), $taxo_names_offre_services);
+				$liste_typologies = get_the_terms( get_the_ID(), $taxo_names_typologie );
+			if(($thematiques != NULL) && ($liste_offres != NULL) && ($liste_typologies != NULL)) {
+			?>
+
+				<aside class="contextual-sidebar">
+					<?php 
+						if($thematique) {
+							echo '<h2> Thématiques </h2>';
 							foreach($thematiques as $thematique) {
 								echo '<span><a href="'.get_term_link($thematique->term_id).'">#'.esc_html($thematique->name).'</a></span>';   
 							}
-						?>
-						<h2> Offres de services </h2>
-						<?php 
-							$liste_offres = get_the_terms( get_the_ID(), $taxo_names_offre_services);
+						}
+					?>
+					<?php 
+						if($liste_offres) {
+							echo '<h2> Offres de services </h2>';
 							foreach($liste_offres as $offre) {
 								echo '<span><a href="'.get_term_link($thematique->term_id).'">#'.esc_html($offre->name).'</a></span>';   
 							}
-						?>
-						<h2> Typologies </h2>
-						<?php 
-							$liste_typologies = get_the_terms( get_the_ID(), $taxo_names_typologie );
+						}
+					?>
+					<?php 
+						if($typlogies) {
+							echo '<h2> Typologies </h2>';
 							foreach($liste_typologies as $typlogies) {
 								echo '<span><a href="'.get_term_link($thematique->term_id).'">#'.esc_html($typlogies->name).'</a></span>';   
 							}
-						?>
-						<h2> Dates du projet </h2>
-						<?php 
-							$date_debut = get_field('date_de_debut');
+						}
+					?>
+					<?php 
+						$date_debut = get_field('date_de_debut');
+						if($date_debut) {
+							echo '<h2> Dates du projet </h2>';
 							$date_fin = get_field('date_de_fin');
-							if($date_debut) {
-								echo '<p> Du '.$date_debut.' au '.$date_fin.'</p>';
-							}
-						?>
-			</aside>
-        </div>
+							echo '<p> Du '.$date_debut.' au '.$date_fin.'</p>';
+						}
+					?>
+				</aside>
+			<?php
+			}
+		?>
+		</div>
 	</div>
 	
