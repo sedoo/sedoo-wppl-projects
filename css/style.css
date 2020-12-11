@@ -8,6 +8,6 @@
     flex-direction: column;
     align-items: start !important;
 }
-.single-sedoo-wppl-project header img{
+.single-sedoo-wppl-project header figure{
 	max-width: 150px;
 }
