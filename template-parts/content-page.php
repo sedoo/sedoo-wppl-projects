@@ -57,27 +57,33 @@ $logo_url = get_field('sedoo_project_logo');
 
 				<aside class="contextual-sidebar">
 					<?php 
-						if($thematique) {
+						if($thematiques) {
 							echo '<h2> Thématiques </h2>';
+							echo '<div class="tag">';
 							foreach($thematiques as $thematique) {
-								echo '<span><a href="'.get_term_link($thematique->term_id).'">#'.esc_html($thematique->name).'</a></span>';   
+								echo '<a href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
 							}
+							echo '</div>';
 						}
 					?>
 					<?php 
 						if($liste_offres) {
 							echo '<h2> Offres de services </h2>';
+							echo '<div class="tag">';
 							foreach($liste_offres as $offre) {
-								echo '<span><a href="'.get_term_link($offre->term_id).'">#'.esc_html($offre->name).'</a></span>';   
+								echo '<a href="'.get_term_link($offre->term_id).'">'.esc_html($offre->name).'</a>';   
 							}
+							echo '</div>';
 						}
 					?>
 					<?php 
 						if($liste_typologies) {
 							echo '<h2> Typologies </h2>';
+							echo '<div class="tag">';
 							foreach($liste_typologies as $typlogies) {
-								echo '<span><a href="'.get_term_link($typlogies->term_id).'">#'.esc_html($typlogies->name).'</a></span>';   
+								echo '<a href="'.get_term_link($typlogies->term_id).'">'.esc_html($typlogies->name).'</a>';   
 							}
+							echo '</div>';
 						}
 					?>
 					<?php 
