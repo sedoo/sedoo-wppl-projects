@@ -7,6 +7,7 @@
  * @package labs_by_Sedoo
  */
 
+global $taxo_names_thematiques;
 get_header();
 
 // get the current taxonomy term
@@ -40,6 +41,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 				single_cat_title('', true);
 				?>
 			</h1>
+
 			<?php
 			if (get_the_archive_description()) {
 				the_archive_description( '<div class="archive-description">', '</div>' );
