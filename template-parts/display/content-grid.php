@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  */
-global $taxo_names_offre_services;
+global $taxo_names_thematiques;
 $postType=get_post_type();
 ?>
 <style>
@@ -38,12 +38,14 @@ $postType=get_post_type();
             <?php if(get_field('date_de_debut', get_the_ID())) { ?>
                 <span>Du <?php echo get_field('date_de_debut', get_the_ID()); ?> au <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
             <?php } ?>
+            <div class="tag">
             <?php 
-                $offre_service = get_the_terms( get_the_ID(), $taxo_names_offre_services );
-                foreach($offre_service as $offre) {
-                    echo '<p>#'.esc_html($offre->name).'</p>';   
+                $thematiques = get_the_terms( get_the_ID(), $taxo_names_thematiques );
+                foreach($thematiques as $thematique) {
+                    echo '<a href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
                 }
             ?>
+            </div>
             <?php 
 			if($contenu_deplie == true) {
 				the_content(); 
