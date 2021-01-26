@@ -224,6 +224,7 @@ function sedoo_projects_register_projets_post_type() {
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
 		'has_archive'           => true,
+		'rewrite'            	=> array( 'slug' => 'projects' ),
 		'show_in_rest'			=> true,
         'rest_base'             => 'projets',
         'rest_controller_class' => 'WP_REST_Posts_Controller',
