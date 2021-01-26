@@ -11,3 +11,11 @@
 .single-sedoo-wppl-project header figure{
 	max-width: 150px;
 }
+
+.tag.sedoo_wppl_projects_taxo_typo a,
+.tag.sedoo_wppl_projects_taxo_serv a {
+    background: #b7b7b7 !important;
+    color: white;
+    text-transform: none;
+    border-radius: 3px;
+}
