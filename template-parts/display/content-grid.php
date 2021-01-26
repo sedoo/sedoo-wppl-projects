@@ -7,6 +7,8 @@
  *
  */
 global $taxo_names_thematiques;
+global $taxo_names_typologie;
+global $taxo_names_offre_services;
 $postType=get_post_type();
 ?>
 <style>
@@ -38,13 +40,29 @@ $postType=get_post_type();
             <?php if(get_field('date_de_debut', get_the_ID())) { ?>
                 <span>Du <?php echo get_field('date_de_debut', get_the_ID()); ?> au <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
             <?php } ?>
-            <div class="tag">
-            <?php 
-                $thematiques = get_the_terms( get_the_ID(), $taxo_names_thematiques );
-                foreach($thematiques as $thematique) {
-                    echo '<a href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
-                }
-            ?>
+            <div class="tag <?php echo $taxo_names_thematiques; ?>">
+                <?php 
+                    $thematiques = get_the_terms( get_the_ID(), $taxo_names_thematiques );
+                    foreach($thematiques as $thematique) {
+                        echo '<a href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
+                    }
+                ?>
+            </div>
+            <div class="tag <?php echo $taxo_names_typologie; ?>">
+                <?php 
+                    $typologies = get_the_terms( get_the_ID(), $taxo_names_typologie );
+                    foreach($typologies as $typologie) {
+                        echo '<a href="'.get_term_link($typologie->term_id).'" class="'.$typologie->slug.'">'.esc_html($typologie->name).'</a>';   
+                    }
+                ?>
+            </div>
+            <div class="tag <?php echo $taxo_names_offre_services; ?>">
+                <?php 
+                    $offre_services = get_the_terms( get_the_ID(), $taxo_names_offre_services );
+                    foreach($offre_services as $offre_service) {
+                        echo '<a href="'.get_term_link($offre_service->term_id).'" class="'.$offre_service->slug.'">'.esc_html($offre_service->name).'</a>';   
+                    }
+                ?>
             </div>
             <?php 
 			if($contenu_deplie == true) {

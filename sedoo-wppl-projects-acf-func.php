@@ -34,7 +34,8 @@ function sedoo_project_register_thematiques_tax() {
 		'hierarchical'               => true,
 		'public'                     => true,
 		'show_in_rest'				 => true,
-		'show_ui'                    => true,
+		'show_ui'                    => true,        
+		'rewrite'           => array( 'slug' => 'thematics' ),
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
@@ -123,6 +124,7 @@ function sedoo_project_register_typology_tax() {
 		'show_admin_column'          => true,
 		'show_in_rest'				 => true,
 		'show_in_nav_menus'          => true,
+		'rewrite'           => array( 'slug' => 'typologies' ),
 		'show_tagcloud'              => true,
 	);
 	register_taxonomy( $taxo_names_typologie, array( $cpt_names_project ), $args );
@@ -165,6 +167,7 @@ function sedoo_project_register_services_offer() {
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_rest'				 => true,
+		'rewrite'           => array( 'slug' => 'services' ),
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
@@ -255,7 +258,7 @@ function sedoo_projets_launch_block_creation() {
         'title'             => __('Sedoo projets'),
         'description'       => __('Ajoute un block liste de projets'),
         'render_callback'   => 'sedoo_projects_register_projets_block',
-        'enqueue_style'     => plugin_dir_url( __FILE__ ) . 'css/projets.css',
+        'enqueue_style'     => plugin_dir_url( __FILE__ ) . 'css/style.css',
         'category'          => 'sedoo-block-category',
         'icon'              => 'media-text',
         'keywords'          => array( 'projets', 'sedoo' ),
