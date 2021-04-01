@@ -291,7 +291,9 @@ function sedoo_projet_single_template($single_template) {
 // alter the taxonomy pages
 add_filter ( 'archive_template', 'sedoo_wppl_project_load_taxo_template' );
 function sedoo_wppl_project_load_taxo_template($taxo_template) {
+	if ( is_post_type_archive ( 'sedoo_wppl_project' ) ) {
         $taxo_template = plugin_dir_path( __FILE__ ) . 'taxonomie-template.php';
+    }
     return $taxo_template;
 }
 
