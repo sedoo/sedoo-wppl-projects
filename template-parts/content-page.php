@@ -13,6 +13,8 @@ global $taxo_names_offre_services;
 
 $nom_long = get_field('sedoo_project_nom_long');
 $site_web = get_field('sedoo_project_site_du_projet');
+$url_data_access = get_field('sedoo_project_url_data_access');
+$url_project_mission = get_field('sedoo_project_url_project_mission');
 $logo_url = get_field('sedoo_project_logo');
 ?>
 
@@ -56,7 +58,26 @@ $logo_url = get_field('sedoo_project_logo');
 			?>
 
 				<aside class="contextual-sidebar">
+
 					<?php 
+						$start_date = get_field('date_de_debut');
+						if($start_date) {
+							echo '<h2> Dates du projet </h2>';
+							$end_date = get_field('date_de_fin');
+							echo '<div>';
+							echo '<p> Du '.$start_date.' au '.$end_date.'</p>';
+							echo '</div>';
+						}
+					?>
+					<?php 
+						if($url_data_access) {
+							echo '<h2> URL datas </h2>';
+							echo '<a href="'.$url_data_access.'">'.$url_data_access.'</a>';
+						}
+						if($url_project_mission) {
+							echo '<h2> URL projet </h2>';
+							echo '<a href="'.$url_project_mission.'">'.$url_project_mission.'</a>';
+						}
 						if($thematiques) {
 							echo '<h2> Thématiques </h2>';
 							echo '<div class="tag">';
@@ -87,11 +108,14 @@ $logo_url = get_field('sedoo_project_logo');
 						}
 					?>
 					<?php 
-						$date_debut = get_field('date_de_debut');
-						if($date_debut) {
-							echo '<h2> Dates du projet </h2>';
-							$date_fin = get_field('date_de_fin');
-							echo '<p> Du '.$date_debut.' au '.$date_fin.'</p>';
+						$linked_project = get_field('sedoo_projects_projets_en_relation');
+						if($linked_project) {
+							echo '<h2> Projets en relation </h2>';
+							echo '<ul>';
+							foreach($linked_project as $project) {
+								echo '<li><a href="'.get_permalink($project->ID).'">'.$project->post_title.'</a></li>';
+							}
+							echo '</ul>';
 						}
 					?>
 				</aside>

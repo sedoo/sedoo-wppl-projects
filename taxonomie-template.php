@@ -10,24 +10,21 @@
 global $taxo_names_thematiques;
 get_header();
 
-// get the current taxonomy term
-$term = get_queried_object();
-$code_color=labs_by_sedoo_main_color();
-$tax_layout = 'grid';
-$cover = get_field( 'tax_image', $term);
-$no_result_text = get_field('no_results_text_tax');	
-$affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 ?>
+<style>
+	.them_link{
+		display:inline-block;
+		margin:5px;
+		margin-left:0;
+		padding:3px;
+	}
+</style>
 
 	<div id="content-area" class="wrapper archives">
 		<main id="main" class="site-main">
 		<?php
 		if ( !empty($cover)) {
 				$coverStyle = "background-image:url(".$cover['url'].")";
-			 
-			// else {
-			// 	$coverStyle = "border-top:5px solid ".$code_color.";height:auto;";
-			// }
 			?>
 			
 			<header id="cover" class="page-header" style="<?php echo $coverStyle;?>">
@@ -37,9 +34,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 			}
 			?>	
 			<h1 class="page-title">
-				<?php
-				single_cat_title('', true);
-				?>
+				Projets
 			</h1>
 
 			<?php
@@ -48,32 +43,75 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 			}
 		?>
 		<?php
-			if($affichage_portfolio != true) { // if portfolio then display it, if not just do the normal script
-				/**
-				 * WP_Query pour lister tous les types de posts
-				 */
-                /* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
-                $paged = 1;
-				sedoo_wpth_labs_get_queried_content_arguments(array('any'), $term->taxonomy, $term->slug, $tax_layout, $paged);
-			} else {
-				?>
-				<script>
-					ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-				</script>
-				<style>
-					.sedoo_port_action_btn li:hover {
-						background-color: <?php echo $code_color; ?> !important;
-					}
+			$args = array(
+				'numberposts' => -1,
+				'post_type'   => 'sedoo_wppl_project',
+				'order' => 'ASC',
+				'orderby' => 'meta_value',
+				'meta_key' => 'sedoo_project_type_of_project'
+			);
+			   
+			$projects = get_posts( $args );
 
-					.sedoo_port_action_btn li.active {
-						background-color: <?php echo $code_color; ?> !important;
-					}
-				</style>
+			?>
+			<section class="post-wrapper sedoo_blocks_listearticle">
 				<?php 
-				archive_do_portfolio_display($term);
-			}
-        
-		?>
+					foreach($projects as $projet) {
+						
+					?>
+					<article id="post-<?php echo $projet->ID; ?>" <?php post_class('post'); ?>>
+						<a href="<?php echo get_the_permalink($projet->ID); ?>"></a>
+						<header class="entry-header">
+							<figure>
+								<?php 
+								if (get_field('sedoo_project_logo', $projet->ID)) {
+									?>
+									<figure>
+										<img src="<?php echo get_field('sedoo_project_logo', $projet->ID); ?>" alt="">  
+									</figure>
+									<?php 
+								} else {
+									labs_by_sedoo_catch_that_image();                
+								}?>            
+							</figure>
+						</header><!-- .entry-header -->
+						<div class="group-content">
+							<div class="entry-content">
+								<h3><?php echo get_the_title($projet->ID); ?></h3>
+								<h4><?php echo get_field('sedoo_project_nom_long', $projet->ID); ?></h4>
+								<?php if(get_field('date_de_debut', $projet->ID)) { ?>
+									<span>Du <?php echo get_field('date_de_debut', $projet->ID); ?> au <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
+								<?php } ?>
+								<div class="tag <?php echo $taxo_names_thematiques; ?>">
+									<?php 
+										$thematiques = get_the_terms( $projet->ID, $taxo_names_thematiques );
+										foreach($thematiques as $thematique) {
+											echo '<a class="them_link" style="background-color:'.get_theme_mod('labs_by_sedoo_color_code').'" href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
+										}
+									?>
+								</div>
+								<?php 
+									echo get_the_excerpt($projet->ID); 								
+								?>
+							</div><!-- .entry-content -->
+							<footer class="entry-footer">
+								<?php
+								if ( 'post' === get_post_type() ) :
+									?>
+									<p><?php the_date('M / d / Y') ?></p>
+								<?php endif; 
+								if ( 'tribe_events' === get_post_type() ) :
+									?>
+									<p><?php echo tribe_get_start_date(get_the_ID(), false, 'd M Y - g:i'); ?></p>
+								<?php endif; ?>
+								<a href="<?php the_permalink(); ?>"><?php echo __('Read more', 'sedoo-wpth-labs'); ?> →</a>
+							</footer><!-- .entry-footer -->
+						</div>
+					</article><!-- #post-->
+					<?php 
+					}
+				?>
+			</section>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
