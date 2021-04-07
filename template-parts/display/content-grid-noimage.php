@@ -9,6 +9,7 @@
 global $taxo_names_thematiques;
 global $taxo_names_typologie;
 global $taxo_names_offre_services;
+$contenuentier = get_field('deplier_le_contenu');
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
@@ -19,7 +20,7 @@ global $taxo_names_offre_services;
             <h3><?php the_title(); ?></h3>
             <h4><?php echo get_field('sedoo_project_nom_long', get_the_ID()); ?></h4>
             <?php if(get_field('date_de_debut', get_the_ID())) { ?>
-                <span>Du <?php echo get_field('date_de_debut', get_the_ID()); ?> au <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
+                <span>From <?php echo get_field('date_de_debut', get_the_ID()); ?> To <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
             <?php } ?>
             
             <div class="tag <?php echo $taxo_names_thematiques; ?>">
@@ -47,7 +48,7 @@ global $taxo_names_offre_services;
                 ?>
             </div>
 			<?php 
-			if($contenu_deplie == true) {
+			if($contenuentier == true) {
 				the_content(); 
             } else {
 				the_excerpt(); 
