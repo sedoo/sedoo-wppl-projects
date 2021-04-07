@@ -18,19 +18,20 @@ $postType=get_post_type();
 }
 </style>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post highlight-'.$highlight); ?>>
+<article id="post-<?php get_the_ID(); ?>" <?php post_class('post highlight-'.$highlight); ?>>
     <a href="<?php the_permalink(); ?>"></a>
 	<header class="entry-header">
-        <?php 
-        // if (isset($postThumbnail)){ echo $postThumbnail; }
-        ?>
         <figure>
             <?php 
-            if (has_post_thumbnail()) {
-                the_post_thumbnail('thumbnail-loop');
+            if (get_field('sedoo_project_logo', get_the_ID())) {
+                ?>
+                <figure>
+                    <img src="<?php echo get_field('sedoo_project_logo', get_the_ID()); ?>" alt="">  
+                </figure>
+                <?php 
             } else {
                 labs_by_sedoo_catch_that_image();                
-            }?>            
+            }?>           
         </figure>
 	</header><!-- .entry-header -->
     <div class="group-content">
@@ -48,22 +49,6 @@ $postType=get_post_type();
                     }
                 ?>
             </div>
-            <div class="tag <?php echo $taxo_names_typologie; ?>">
-                <?php 
-                    $typologies = get_the_terms( get_the_ID(), $taxo_names_typologie );
-                    foreach($typologies as $typologie) {
-                        echo '<a href="'.get_term_link($typologie->term_id).'" class="'.$typologie->slug.'">'.esc_html($typologie->name).'</a>';   
-                    }
-                ?>
-            </div>
-            <div class="tag <?php echo $taxo_names_offre_services; ?>">
-                <?php 
-                    $offre_services = get_the_terms( get_the_ID(), $taxo_names_offre_services );
-                    foreach($offre_services as $offre_service) {
-                        echo '<a href="'.get_term_link($offre_service->term_id).'" class="'.$offre_service->slug.'">'.esc_html($offre_service->name).'</a>';   
-                    }
-                ?>
-            </div>
             <?php 
 			if($contenu_deplie == true) {
 				the_content(); 
@@ -74,15 +59,6 @@ $postType=get_post_type();
 			?>
         </div><!-- .entry-content -->
         <footer class="entry-footer">
-            <?php
-            if ( 'post' === get_post_type() ) :
-                ?>
-                <p><?php the_date('M / d / Y') ?></p>
-            <?php endif; 
-            if ( 'tribe_events' === get_post_type() ) :
-                ?>
-                <p><?php echo tribe_get_start_date(get_the_ID(), false, 'd M Y - g:i'); ?></p>
-            <?php endif; ?>
             <a href="<?php the_permalink(); ?>"><?php echo __('Read more', 'sedoo-wpth-labs'); ?> →</a>
         </footer><!-- .entry-footer -->
     </div>

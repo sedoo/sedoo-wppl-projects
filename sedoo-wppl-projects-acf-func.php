@@ -291,8 +291,15 @@ function sedoo_projet_single_template($single_template) {
 // alter the taxonomy pages
 add_filter ( 'archive_template', 'sedoo_wppl_project_load_taxo_template' );
 function sedoo_wppl_project_load_taxo_template($taxo_template) {
-	if ( is_post_type_archive ( 'sedoo_wppl_project' ) ) {
-        $taxo_template = plugin_dir_path( __FILE__ ) . 'taxonomie-template.php';
+
+	global $taxo_names_typologie;
+	global $taxo_names_highlights;
+	global $taxo_names_thematiques;
+	if(is_tax($taxo_names_thematiques) || is_tax($taxo_names_typologie) || is_tax($taxo_names_offre_services)) {
+		$taxo_template = plugin_dir_path( __FILE__ ) . 'taxonomie-template.php';
+	}
+	elseif ( is_post_type_archive ( 'sedoo_wppl_project' ) ) {
+        $taxo_template = plugin_dir_path( __FILE__ ) . 'archive-template.php';
     }
     return $taxo_template;
 }
