@@ -65,7 +65,7 @@ $logo_url = get_field('sedoo_project_logo');
 							echo '<h2> Dates du projet </h2>';
 							$end_date = get_field('date_de_fin');
 							echo '<div>';
-							echo '<p> Du '.$start_date.' au '.$end_date.'</p>';
+							echo '<p> From '.$start_date.' to '.$end_date.'</p>';
 							echo '</div>';
 						}
 					?>
