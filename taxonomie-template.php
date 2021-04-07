@@ -37,9 +37,10 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
             <div class="group-content">
                 <div class="entry-content">
                     <h3><?php echo get_the_title($projet->ID); ?></h3>
+                    <p>
                     <?php 
                         echo get_the_excerpt($projet->ID); 								
-                    ?>
+                    ?></p>
                 </div><!-- .entry-content -->
             </div>
         </article><!-- #post-->
