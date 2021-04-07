@@ -23,15 +23,12 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
             <header class="entry-header">
                 <figure>
                     <?php 
-                    if (get_field('sedoo_project_logo', $projet->ID)) {
-                        ?>
-                        <figure>
-                            <img src="<?php echo get_field('sedoo_project_logo', $projet->ID); ?>" alt="">  
-                        </figure>
-                        <?php 
+                    if (has_post_thumbnail(get_the_ID())) {
+                        the_post_thumbnail('thumbnail-loop');
                     } else {
                         labs_by_sedoo_catch_that_image();                
-                    }?>            
+                    }
+                    ?>          
                 </figure>
             </header><!-- .entry-header -->
             <div class="group-content">

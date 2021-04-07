@@ -24,15 +24,12 @@ $postType=get_post_type();
 	<header class="entry-header">
         <figure>
             <?php 
-            if (get_field('sedoo_project_logo', get_the_ID())) {
-                ?>
-                <figure>
-                    <img src="<?php echo get_field('sedoo_project_logo', get_the_ID()); ?>" alt="">  
-                </figure>
-                <?php 
+            if (has_post_thumbnail(get_the_ID())) {
+                the_post_thumbnail('thumbnail-loop');
             } else {
                 labs_by_sedoo_catch_that_image();                
-            }?>           
+            }
+            ?>           
         </figure>
 	</header><!-- .entry-header -->
     <div class="group-content">
