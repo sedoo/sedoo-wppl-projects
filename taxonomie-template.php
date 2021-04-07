@@ -23,8 +23,8 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
             <header class="entry-header">
                 <figure>
                     <?php 
-                    if (has_post_thumbnail(get_the_ID())) {
-                        get_the_post_thumbnail(get_the_ID(), 'thumbnail-loop');
+                    if (has_post_thumbnail($projet->ID)) {
+                        echo get_the_post_thumbnail($projet->ID);
                     } else {
                         labs_by_sedoo_catch_that_image();                
                     }
