@@ -66,7 +66,7 @@ get_header();
 								<h3><?php echo get_the_title($projet->ID); ?></h3>
 								<h4><?php echo get_field('sedoo_project_nom_long', $projet->ID); ?></h4>
 								<?php if(get_field('date_de_debut', $projet->ID)) { ?>
-									<span>Du <?php echo get_field('date_de_debut', $projet->ID); ?> au <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
+									<span>From <?php echo get_field('date_de_debut', $projet->ID); ?> to <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
 								<?php } ?>
 								<div class="tag <?php echo $taxo_names_thematiques; ?>">
 									<?php 

@@ -25,7 +25,7 @@ $postType=get_post_type();
         <figure>
             <?php 
             if (has_post_thumbnail(get_the_ID())) {
-                get_the_post_thumbnail(get_the_ID(), 'thumbnail-loop');
+                echo get_the_post_thumbnail(get_the_ID());
             } else {
                 labs_by_sedoo_catch_that_image();                
             }
@@ -35,7 +35,7 @@ $postType=get_post_type();
     <div class="group-content">
         <div class="entry-content">
             <h3><?php the_title(); ?></h3>
-            <?php if(get_field('sedoo_project_nom_long', get_the_ID()) { ?>
+            <?php if(get_field('sedoo_project_nom_long', get_the_ID())) { ?>
                 <h4><?php echo get_field('sedoo_project_nom_long', get_the_ID()); ?></h4>
             <?php } ?>
             <?php if(get_field('date_de_debut', get_the_ID())) { ?>
