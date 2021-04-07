@@ -47,6 +47,7 @@ $contenuentier = get_field('deplier_le_contenu');
                     }
                 ?>
             </div>
+            <p>
 			<?php 
 			if($contenuentier == true) {
 				the_content(); 
@@ -54,6 +55,7 @@ $contenuentier = get_field('deplier_le_contenu');
 				the_excerpt(); 
 			}
 			?>
+            </p>
         </div><!-- .entry-content -->
         <footer class="entry-footer">
             <?php

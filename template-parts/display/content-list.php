@@ -26,13 +26,14 @@ $contenuentier = get_field('deplier_le_contenu');
                     echo '<p>#'.esc_html($offre->name).'</p>';   
                 }
             ?>
+			<p>
 			<?php 
 			if($contenuentier == true) {
 				the_content(); 
             } else {
 				the_excerpt(); 
 			}
-			?>
+			?></p>
             <p class="date"><?php the_date('M / d / Y') ?>
             <a href="<?php the_permalink(); ?>"><?php echo __('Read more', 'sedoo-wpth-labs'); ?> →</a>
         </div><!-- .entry-content -->
