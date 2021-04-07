@@ -89,7 +89,7 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
             sedoo_project_display_list_of_projects($mainprojects, get_queried_object());
 			?>
 
-            <h2> Others projects </h2>
+           
             <?php 
             $args = array(
 				'numberposts' => -1,
@@ -113,6 +113,7 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
 			$sideprojects = get_posts( $args );
             if($sideprojects) {
                 ?>
+                <h2> Others projects </h2>
                 <table class="taxo_project_table">
                     <tbody>
                         <tr>
