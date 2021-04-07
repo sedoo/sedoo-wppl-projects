@@ -74,7 +74,7 @@ $logo_url = get_field('sedoo_project_logo');
 							echo '<h2> URL </h2>';
 						}
 						if($url_data_access) {
-							echo '<a href="'.$url_data_access.'">Datas Acces URL</a>';
+							echo '<a href="'.$url_data_access.'">Data Access</a>';
 						}
 						if($url_project_mission) {
 							echo '<a href="'.$url_project_mission.'"> Official Website</a>';
