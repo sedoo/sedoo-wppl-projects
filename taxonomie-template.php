@@ -24,7 +24,7 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
                 <figure>
                     <?php 
                     if (has_post_thumbnail(get_the_ID())) {
-                        the_post_thumbnail('thumbnail-loop');
+                        get_the_post_thumbnail(get_the_ID(), 'thumbnail-loop');
                     } else {
                         labs_by_sedoo_catch_that_image();                
                     }
