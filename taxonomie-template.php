@@ -92,7 +92,6 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
 			<h1 class="page-title">
                 <?php echo get_queried_object()->name; ?>
 			</h1>
-            <h2> Main projects </h2>
             <?php 
             
             ///////
@@ -114,7 +113,7 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
             sedoo_project_display_list_of_projects($mainprojects, get_queried_object());
 			?>
 
-            <h2> Side projects </h2>
+            <h2> Others projects </h2>
             <?php 
             $args = array(
 				'numberposts' => -1,
