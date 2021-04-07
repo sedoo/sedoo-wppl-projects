@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sedoo - Projects
  * Description: Créer un post type Projects Sedoo
- * Version: 1.0.2
+ * Version: 1.0.4
  * Author: Nicolas Gruwe 
  * GitHub Plugin URI: sedoo/sedoo-wppl-projects
  * GitHub Branch:     master
@@ -24,9 +24,13 @@ $taxo_names_offre_services = 'sedoo_wppl_projects_taxo_serv';
 $cpt_names_project = 'sedoo_wppl_project';
 
 
-
 function sedoo_wppl_project_add_css() {
-    if(is_single()) {
+	global $taxo_names_typologie;
+	global $taxo_names_offre_services;
+	global $taxo_names_thematiques;
+	global $cpt_names_project;
+    if(is_single() && $cpt_names_project == get_post_type() || is_archive($cpt_names_project) || is_tax($taxo_names_thematiques) || is_tax($taxo_names_typologie) || is_tax($taxo_names_offre_services)) {
+		echo '<link href="'.plugins_url('css/style.css', __FILE__).'" rel="stylesheet" type="text/css" />';
         wp_register_style( 'sedoo_wppl_project_css', plugins_url('css/style.css', __FILE__) );
         wp_enqueue_style( 'sedoo_wppl_project_css' );    
     }

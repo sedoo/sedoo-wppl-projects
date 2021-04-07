@@ -70,13 +70,14 @@ $logo_url = get_field('sedoo_project_logo');
 						}
 					?>
 					<?php 
+						if($url_data_access || $url_project_mission) {
+							echo '<h2> URL </h2>';
+						}
 						if($url_data_access) {
-							echo '<h2> URL datas </h2>';
-							echo '<a href="'.$url_data_access.'">'.$url_data_access.'</a>';
+							echo '<a href="'.$url_data_access.'">Datas Acces URL</a>';
 						}
 						if($url_project_mission) {
-							echo '<h2> URL projet </h2>';
-							echo '<a href="'.$url_project_mission.'">'.$url_project_mission.'</a>';
+							echo '<a href="'.$url_project_mission.'"> Official Website</a>';
 						}
 						if($thematiques) {
 							echo '<h2> Thématiques </h2>';
