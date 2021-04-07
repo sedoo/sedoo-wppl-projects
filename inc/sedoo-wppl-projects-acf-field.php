@@ -46,7 +46,7 @@ if( function_exists('acf_add_local_field_group') ):
             ),
             array(
                 'key' => 'field_5fc7760a1a1bd',
-                'label' => 'URL acces datas',
+                'label' => 'URL access data',
                 'name' => 'sedoo_project_url_data_access',
                 'type' => 'url',
                 'instructions' => '',
