@@ -279,7 +279,7 @@ function sedoo_projet_single_template($single_template) {
 	global $cpt_names_project;
     global $post;
     
-    if ($post->post_type == $cpt_names_project) {
+    if ($post->post_type == 'sedoo_wppl_project') {
         $single_template = plugin_dir_path( __FILE__ ) . 'single-projets.php';
     }
     return $single_template;
