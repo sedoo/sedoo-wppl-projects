@@ -11,7 +11,7 @@ global $taxo_names_thematiques;
 get_header();
 
 ?>
-	<div id="content-area" class="wrapper archives">
+	<div id="content-area" class="wrapper project-archive-template  archives">
 		<main id="main" class="site-main">
 		<?php
 		if ( !empty($cover)) {

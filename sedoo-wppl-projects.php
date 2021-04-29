@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sedoo - Projects
  * Description: Créer un post type Projects Sedoo
- * Version: 1.0.14
+ * Version: 1.0.15
  * Author: Nicolas Gruwe 
  * GitHub Plugin URI: sedoo/sedoo-wppl-projects
  * GitHub Branch:     master

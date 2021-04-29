@@ -45,11 +45,11 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
         }
     ?>
     </section>
-    <?php 
-    }
-    ?>
+<?php 
+}
+?>
 
-	<div id="content-area" class="wrapper archives">
+	<div id="content-area" class="wrapper project-taxonomie-template archives">
 		<main id="main" class="site-main">
 		<?php
 		if ( !empty($cover)) {
