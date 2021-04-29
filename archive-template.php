@@ -11,7 +11,7 @@ global $taxo_names_thematiques;
 get_header();
 
 ?>
-	<div id="content-area" class="wrapper archives">
+	<div id="content-area" class="wrapper project-archive-template  archives">
 		<main id="main" class="site-main">
 		<?php
 		if ( !empty($cover)) {
@@ -72,7 +72,7 @@ get_header();
 									<?php 
 										$thematiques = get_the_terms( $projet->ID, $taxo_names_thematiques );
 										foreach($thematiques as $thematique) {
-											echo '<a class="them_link" style="background-color:'.get_theme_mod('labs_by_sedoo_color_code').'" href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
+											echo '<a class="them_link" href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
 										}
 									?>
 								</div>

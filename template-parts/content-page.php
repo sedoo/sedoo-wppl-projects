@@ -18,7 +18,7 @@ $url_project_mission = get_field('sedoo_project_url_project_mission');
 $logo_url = get_field('sedoo_project_logo');
 ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area project-content-page">
         <div class="wrapper-layout">    
             <main id="main" class="site-main">
                 <article id="post-<?php the_ID();?>">	
