@@ -14,9 +14,6 @@ $contenuentier = get_field('deplier_le_contenu');
 	<header class="entry-header">
         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
         <h4><?php echo get_field('sedoo_project_nom_long', get_the_ID()); ?></h4>
-		<?php if(get_field('date_de_debut', get_the_ID())) { ?>
-			<span>From <?php echo get_field('date_de_debut', get_the_ID()); ?> to <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
-		<?php } ?>
 	</header><!-- .entry-header -->
     <div class="group-content">
         <div class="entry-content">
@@ -37,23 +34,5 @@ $contenuentier = get_field('deplier_le_contenu');
             <p class="date"><?php the_date('M / d / Y') ?>
             <a href="<?php the_permalink(); ?>"><?php echo __('Read more', 'sedoo-wpth-labs'); ?> →</a>
         </div><!-- .entry-content -->
-        <?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'labs-by-sedoo' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
     </div>
 </article><!-- #post-->
