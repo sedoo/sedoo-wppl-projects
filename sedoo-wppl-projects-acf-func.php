@@ -304,6 +304,12 @@ function sedoo_wppl_project_load_taxo_template($taxo_template) {
     return $taxo_template;
 }
 
+// add the option page
 
+acf_add_options_sub_page(array(
+	'page_title' 	=> 'Projects settings',
+	'menu_title'	=> 'Settings',
+	'parent_slug'	=> 'edit.php?post_type=sedoo_wppl_project',
+));
 
 ?>

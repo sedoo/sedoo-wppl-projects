@@ -27,7 +27,7 @@ $logo_url = get_field('sedoo_project_logo');
 							<h1><?php the_title(); ?></h1>
 							<span>  <?php echo $nom_long; ?></span>
 							<div>
-								<a title="Site web du projet" target="_blank" href=" <?php echo $site_web; ?>"> <?php echo $site_web; ?> </a>
+								<a title="<?php echo __( 'Project website', 'sedoo-wppl-projects' ); ?>" target="_blank" href=" <?php echo $site_web; ?>"> <?php echo $site_web; ?> </a>
 							</div>
 						</div>
 
@@ -61,12 +61,29 @@ $logo_url = get_field('sedoo_project_logo');
 
 					<?php 
 						$start_date = get_field('date_de_debut');
+						$end_date = get_field('date_de_fin');
+
+						if($start_date > date('d/m/Y') || !$start_date) { 
+							// if project no started yed
+							echo '<p class="proj_status com_up"> '.__( 'Upcoming', 'sedoo-wppl-projects' ). '</p>'; 
+						}
+						elseif(!$end_date || $end_date > date('d/m/Y')) { 
+							// if project has no end date or if project is not finished yet
+							echo '<p class="proj_status ongoing"> '.__( 'On going', 'sedoo-wppl-projects' ). '</p>'; 
+						}
+						elseif($end_date < date('d/m/Y')) {
+							// if en date is passed
+							echo '<p class="proj_status finish"> '.__( 'Finish', 'sedoo-wppl-projects' ). '</p>';
+						}
+
 						if($start_date) {
-							echo '<h2> Dates du projet </h2>';
-							$end_date = get_field('date_de_fin');
+							echo '<h2> '.__( 'Project dates', 'sedoo-wppl-projects' ). '</h2>';
 							echo '<div>';
-							echo '<p> From '.$start_date.' to '.$end_date.'</p>';
-							echo '</div>';
+							echo '<p> '.__( 'From', 'sedoo-wppl-projects' ). ' '.$start_date;
+							if($end_date) {
+								echo ' '.__( 'to', 'sedoo-wppl-projects' ). ' '.$end_date;
+							} 
+							echo '</p></div>';
 						}
 					?>
 					<?php 
@@ -74,13 +91,13 @@ $logo_url = get_field('sedoo_project_logo');
 							echo '<h2> URL </h2>';
 						}
 						if($url_data_access) {
-							echo '<a href="'.$url_data_access.'">Data Access</a>';
+							echo '<a href="'.$url_data_access.'">'.__( 'Data access', 'sedoo-wppl-projects' ). '</a>';
 						}
 						if($url_project_mission) {
-							echo '<a href="'.$url_project_mission.'"> Official Website</a>';
+							echo '<a href="'.$url_project_mission.'">'.__( 'Official website', 'sedoo-wppl-projects' ). '</a>';
 						}
 						if($thematiques) {
-							echo '<h2> Thématiques </h2>';
+							echo '<h2> '.__( 'Project themes', 'sedoo-wppl-projects' ). ' </h2>';
 							echo '<div class="tag">';
 							foreach($thematiques as $thematique) {
 								echo '<a href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
@@ -90,7 +107,7 @@ $logo_url = get_field('sedoo_project_logo');
 					?>
 					<?php 
 						if($liste_offres) {
-							echo '<h2> Offres de services </h2>';
+							echo '<h2> '.__( 'Project services', 'sedoo-wppl-projects' ). '</h2>';
 							echo '<div class="tag">';
 							foreach($liste_offres as $offre) {
 								echo '<a href="'.get_term_link($offre->term_id).'">'.esc_html($offre->name).'</a>';   
@@ -100,7 +117,7 @@ $logo_url = get_field('sedoo_project_logo');
 					?>
 					<?php 
 						if($liste_typologies) {
-							echo '<h2> Typologies </h2>';
+							echo '<h2> '.__( 'Project typology', 'sedoo-wppl-projects' ). ' </h2>';
 							echo '<div class="tag">';
 							foreach($liste_typologies as $typlogies) {
 								echo '<a href="'.get_term_link($typlogies->term_id).'">'.esc_html($typlogies->name).'</a>';   
@@ -111,7 +128,7 @@ $logo_url = get_field('sedoo_project_logo');
 					<?php 
 						$linked_project = get_field('sedoo_projects_projets_en_relation');
 						if($linked_project) {
-							echo '<h2> Projets en relation </h2>';
+							echo '<h2> '.__( 'Related project', 'sedoo-wppl-projects' ). '</h2>';
 							echo '<ul>';
 							foreach($linked_project as $project) {
 								echo '<li><a href="'.get_permalink($project->ID).'">'.$project->post_title.'</a></li>';
