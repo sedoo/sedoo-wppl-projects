@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Sedoo - Projects\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-03 09:01+0000\n"
-"PO-Revision-Date: 2021-05-27 14:42+0000\n"
+"PO-Revision-Date: 2021-05-27 14:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.5.2; wp-5.7.2\n"
+"X-Loco-Version: 2.5.2; wp-5.7.1\n"
 "X-Domain: sedoo-wppl-projects"
 
 #: taxonomie-template.php:130 template-parts/content-page.php:99
@@ -33,7 +33,7 @@ msgstr "Fini"
 
 #: template-parts/content-page.php:83
 msgid "From"
-msgstr "Du"
+msgstr "De"
 
 #. Description of the plugin
 msgid "Gestion des projets"
@@ -93,7 +93,7 @@ msgstr "Date de début"
 
 #: template-parts/content-page.php:89
 msgid "to"
-msgstr "au"
+msgstr "A"
 
 #: template-parts/content-page.php:68
 msgid "Upcoming"
