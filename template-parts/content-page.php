@@ -57,7 +57,7 @@ $logo_url = get_field('sedoo_project_logo');
 			else {
 			?>
 
-				<aside class="contextual-sidebar">
+				<aside class="contextual-sidebar project-sidebar">
 					<section class="sedoo-project-section-date">
 					<?php 
 						$start_date = get_field('date_de_debut');

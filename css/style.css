@@ -103,3 +103,7 @@ text-decoration: none;
     background-color: var(--theme-color);
     color: white;
 }
+
+.project-sidebar section {
+    margin-bottom: 15px;
+}
