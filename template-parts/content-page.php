@@ -58,7 +58,7 @@ $logo_url = get_field('sedoo_project_logo');
 			?>
 
 				<aside class="contextual-sidebar">
-
+					<section class="sedoo-project-section-date">
 					<?php 
 						$start_date = get_field('date_de_debut');
 						$end_date = get_field('date_de_fin');
@@ -79,61 +79,79 @@ $logo_url = get_field('sedoo_project_logo');
 						if($start_date) {
 							echo '<h2> '.__( 'Project dates', 'sedoo-wppl-projects' ). '</h2>';
 							echo '<div>';
-							echo '<p> '.__( 'From', 'sedoo-wppl-projects' ). ' '.$start_date;
+							if($end_date) { // in french : de
+								echo '<p> '.__( 'From', 'sedoo-wppl-projects' ). ' '.$start_date;
+							} 
+							else { // in french : depuis
+								echo '<p> '.__( 'Since', 'sedoo-wppl-projects' ). ' '.$start_date;
+							} 
 							if($end_date) {
 								echo ' '.__( 'to', 'sedoo-wppl-projects' ). ' '.$end_date;
 							} 
 							echo '</p></div>';
 						}
 					?>
+				</section>
 					<?php 
 						if($url_data_access || $url_project_mission) {
+							echo '<section class="sedoo-project-section-urls">';
 							echo '<h2> URL </h2>';
 						}
 						if($url_data_access) {
 							echo '<a href="'.$url_data_access.'">'.__( 'Data access', 'sedoo-wppl-projects' ). '</a>';
 						}
 						if($url_project_mission) {
-							echo '<a href="'.$url_project_mission.'">'.__( 'Official website', 'sedoo-wppl-projects' ). '</a>';
+							echo '<a href="'.$url_project_mission.'">'.__( 'Official website', 'sedoo-wppl-projects' ). '</a>';	
 						}
+
+						if($url_data_access || $url_project_mission) {	
+							echo '</section>';
+						}
+					?>
+					<?php 
 						if($thematiques) {
+							echo '<section class="sedoo-project-section-themes">';
 							echo '<h2> '.__( 'Project themes', 'sedoo-wppl-projects' ). ' </h2>';
 							echo '<div class="tag">';
 							foreach($thematiques as $thematique) {
 								echo '<a href="'.get_term_link($thematique->term_id).'">'.esc_html($thematique->name).'</a>';   
 							}
-							echo '</div>';
+							echo '</div></section>';
 						}
 					?>
 					<?php 
 						if($liste_offres) {
+							echo '<section class="sedoo-project-section-services">';
 							echo '<h2> '.__( 'Project services', 'sedoo-wppl-projects' ). '</h2>';
 							echo '<div class="tag">';
 							foreach($liste_offres as $offre) {
 								echo '<a href="'.get_term_link($offre->term_id).'">'.esc_html($offre->name).'</a>';   
 							}
-							echo '</div>';
+							echo '</div></section>';
 						}
 					?>
 					<?php 
 						if($liste_typologies) {
+							echo '<section class="sedoo-project-section-typologies">';
 							echo '<h2> '.__( 'Project typology', 'sedoo-wppl-projects' ). ' </h2>';
 							echo '<div class="tag">';
 							foreach($liste_typologies as $typlogies) {
 								echo '<a href="'.get_term_link($typlogies->term_id).'">'.esc_html($typlogies->name).'</a>';   
 							}
-							echo '</div>';
+							echo '</div></section>';
 						}
 					?>
+				
 					<?php 
 						$linked_project = get_field('sedoo_projects_projets_en_relation');
 						if($linked_project) {
+							echo '<section class="sedoo-project-section-related-projects">';
 							echo '<h2> '.__( 'Related project', 'sedoo-wppl-projects' ). '</h2>';
 							echo '<ul>';
 							foreach($linked_project as $project) {
 								echo '<li><a href="'.get_permalink($project->ID).'">'.$project->post_title.'</a></li>';
 							}
-							echo '</ul>';
+							echo '</ul></section>';
 						}
 					?>
 				</aside>
