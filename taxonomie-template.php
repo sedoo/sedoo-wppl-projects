@@ -146,7 +146,7 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
                             <td>
                                 <?php 
                                     if(get_the_excerpt($projet->ID)) {
-                                        echo the_excerpt();
+                                        echo get_the_excerpt($projet->ID);
                                     } else {
                                         if(get_field('sedoo_project_nom_long' , $projet->ID)) { 
                                             echo get_field('sedoo_project_nom_long' , $projet->ID); 
