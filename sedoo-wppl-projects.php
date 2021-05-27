@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sedoo - Projects
  * Description: Gestion des projets
- * Version: 1.0.16
+ * Version: 1.0.17
  * Author: Nicolas Gruwe 
  * GitHub Plugin URI: sedoo/sedoo-wppl-projects
  * GitHub Branch:  master
@@ -107,6 +107,6 @@ include 'inc/sedoo-wppl-projects-acf-field.php';
 
 // LOAD LANGUAGES FILES
 function sedoo_projects_load_language() {
-    load_plugin_textdomain( 'sedoo-wppl-instruments', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+    load_plugin_textdomain( 'sedoo-wppl-projects', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'plugins_loaded', 'sedoo_projects_load_language' );
