@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Sedoo - Projects\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-03 09:01+0000\n"
-"PO-Revision-Date: 2021-05-05 09:57+0000\n"
+"PO-Revision-Date: 2021-05-27 14:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.5.2; wp-5.7.1\n"
 "X-Domain: sedoo-wppl-projects"
 
-#: taxonomie-template.php:130 template-parts/content-page.php:94
+#: taxonomie-template.php:130 template-parts/content-page.php:99
 msgid "Data access"
 msgstr "Accès aux données"
 
@@ -31,7 +31,7 @@ msgstr "Date de fin"
 msgid "Finish"
 msgstr "Fini"
 
-#: template-parts/content-page.php:82
+#: template-parts/content-page.php:83
 msgid "From"
 msgstr "De"
 
@@ -47,7 +47,7 @@ msgstr "Nom"
 msgid "Nicolas Gruwe"
 msgstr ""
 
-#: template-parts/content-page.php:97
+#: template-parts/content-page.php:102
 msgid "Official website"
 msgstr "Site officiel"
 
@@ -59,15 +59,15 @@ msgstr "En cours"
 msgid "Project dates"
 msgstr "Dates"
 
-#: template-parts/content-page.php:110
+#: template-parts/content-page.php:115
 msgid "Project services"
 msgstr "Services"
 
-#: template-parts/content-page.php:100
+#: template-parts/content-page.php:105
 msgid "Project themes"
 msgstr "Thématiques"
 
-#: template-parts/content-page.php:120
+#: template-parts/content-page.php:125
 msgid "Project typology"
 msgstr "Typologies"
 
@@ -75,7 +75,7 @@ msgstr "Typologies"
 msgid "Project website"
 msgstr "Site web"
 
-#: template-parts/content-page.php:131
+#: template-parts/content-page.php:136
 msgid "Related project"
 msgstr "Projets en lien"
 
@@ -83,11 +83,15 @@ msgstr "Projets en lien"
 msgid "Sedoo - Projects"
 msgstr "Projets"
 
+#: template-parts/content-page.php:86
+msgid "Since"
+msgstr "Depuis"
+
 #: taxonomie-template.php:128
 msgid "Start date"
 msgstr "Date de début"
 
-#: template-parts/content-page.php:84
+#: template-parts/content-page.php:89
 msgid "to"
 msgstr "A"
 

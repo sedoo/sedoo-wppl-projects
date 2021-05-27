@@ -19,10 +19,6 @@ $contenuentier = get_field('deplier_le_contenu');
         <div class="entry-content">
             <h3><?php the_title(); ?></h3>
             <h4><?php echo get_field('sedoo_project_nom_long', get_the_ID()); ?></h4>
-            <?php if(get_field('date_de_debut', get_the_ID())) { ?>
-                <span>From <?php echo get_field('date_de_debut', get_the_ID()); ?> To <?php echo get_field('date_de_fin', get_the_ID()); ?></span>
-            <?php } ?>
-            
             <div class="tag <?php echo $taxo_names_thematiques; ?>">
                 <?php 
                     $thematiques = get_the_terms( get_the_ID(), $taxo_names_thematiques );
@@ -58,11 +54,6 @@ $contenuentier = get_field('deplier_le_contenu');
             </p>
         </div><!-- .entry-content -->
         <footer class="entry-footer">
-            <?php
-            if ( 'post' === get_post_type() ) :
-                ?>
-                <p><?php the_date('M / d / Y') ?></p>
-            <?php endif; ?>
             <a href="<?php the_permalink(); ?>"><?php echo __('Read more', 'sedoo-wpth-labs'); ?> →</a>
         </footer><!-- .entry-footer -->
     </div>
