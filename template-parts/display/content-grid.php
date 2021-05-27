@@ -12,13 +12,6 @@ global $taxo_names_offre_services;
 $contenuentier = get_field('deplier_le_contenu');
 $postType=get_post_type();
 ?>
-<style>
-.Highlights-oui {
-    transform: scale(1.02);
-    box-shadow: 0 0px 3px rgb(0, 0, 0);
-}
-</style>
-
 <article id="post-<?php get_the_ID(); ?>" <?php post_class('post highlight-'.$highlight); ?>>
     <a href="<?php the_permalink(); ?>"></a>
 	<header class="entry-header">

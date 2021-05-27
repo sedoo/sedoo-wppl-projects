@@ -1,11 +1,13 @@
 <?php
 /**
  * Plugin Name: Sedoo - Projects
- * Description: Créer un post type Projects Sedoo
- * Version: 1.0.15
+ * Description: Gestion des projets
+ * Version: 1.0.16
  * Author: Nicolas Gruwe 
  * GitHub Plugin URI: sedoo/sedoo-wppl-projects
- * GitHub Branch:     master
+ * GitHub Branch:  master
+ * Text Domain:  sedoo-wppl-projects 
+ * Domain Path:  /languages
  */
 
 
@@ -100,3 +102,11 @@ add_filter('acf/update_value/name=sedoo_projects_projets_en_relation', 'sedoo_pr
 
 include 'sedoo-wppl-projects-acf-func.php';
 include 'inc/sedoo-wppl-projects-acf-field.php';
+
+
+
+// LOAD LANGUAGES FILES
+function sedoo_projects_load_language() {
+    load_plugin_textdomain( 'sedoo-wppl-instruments', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'sedoo_projects_load_language' );

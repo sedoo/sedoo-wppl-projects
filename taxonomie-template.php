@@ -91,15 +91,24 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
             $args = array(
 				'numberposts' => -1,
 				'post_type'   => 'sedoo_wppl_project',
-				'meta_key' => 'sedoo_project_type_of_project',
-				'meta_value' => 'secondaire',
+                'meta_query' => array(
+                    array(
+                        'key' => 'sedoo_project_type_of_project',
+                        'value' => 'secondaire',
+                    )
+                ),
                 'tax_query' => array(
                     array(
                       'taxonomy' => get_queried_object()->taxonomy,
                       'field' => 'id',
                       'terms' => get_queried_object()->term_id // Where term_id of Term 1 is "1".
                     )
-                  )
+                ),
+                'meta_key'			=> 'date_de_debut',
+                'orderby' => array(
+                    'meta_value' => 'DESC',
+                    'title' => 'ASC',
+                )
 			);
 
             /// END MAIN PROJECTS
@@ -110,24 +119,57 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
 			$sideprojects = get_posts( $args );
             if($sideprojects) {
                 ?>
-                <h2> Others projects </h2>
+                <h2> <?php echo get_field('label_others_projects', 'options'); ?> </h2>
                 <table class="taxo_project_table">
                     <tbody>
                         <tr>
-                            <th>Short name</th>
-                            <th>Long name</th>
-                            <th>Start date</th>
-                            <th>End date</th>
-                            <th>Main link</th>
+                            <th><?php echo __( 'Name', 'sedoo-wppl-projects' ); ?></th>
+                            <th><?php echo __( 'Description', 'sedoo-wppl-projects' ); ?></th>
+                            <th><?php echo __( 'Start date', 'sedoo-wppl-projects' ); ?></th>
+                            <th><?php echo __( 'End date', 'sedoo-wppl-projects' ); ?></th>
+                            <th><?php echo __( 'Data access', 'sedoo-wppl-projects' ); ?></th>
                         </tr>
                         <?php 
                             foreach($sideprojects as $projet) {
                         ?>
                         <tr>
-                            <td><?php echo '<a href="'.get_permalink($projet->ID).'">'.$projet->post_title.'</a>'; ?></td>
-                            <td><?php if(get_field('sedoo_project_nom_long' , $projet->ID)) { echo get_field('sedoo_project_nom_long' , $projet->ID); } else { echo '-'; } ?></td>
-                            <td><?php if(get_field('date_de_debut' , $projet->ID)) { echo get_field('date_de_debut' , $projet->ID); } else { echo '-'; } ?></td>
-                            <td><?php if(get_field('date_de_fin' , $projet->ID)) { echo get_field('date_de_fin' , $projet->ID); } else { echo '-'; } ?></td>
+                            <td>
+                                <?php 
+                                echo '<a class="tab_project_tooltip" href="'.get_permalink($projet->ID).'">'.$projet->post_title.'</a>'; 
+                                if(get_field('sedoo_project_nom_long' , $projet->ID)) { 
+                                ?>
+                                    <span> <?php echo get_field('sedoo_project_nom_long' , $projet->ID); ?> </span>
+                                <?php 
+                                }  
+                                ?>
+                            </td>
+                            <td>
+                                <?php 
+                                    if(get_the_excerpt($projet->ID)) {
+                                        echo the_excerpt();
+                                    } else {
+                                        if(get_field('sedoo_project_nom_long' , $projet->ID)) { 
+                                            echo get_field('sedoo_project_nom_long' , $projet->ID); 
+                                        } else { echo '-'; } 
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <?php 
+                                if(get_field('date_de_debut' , $projet->ID)) { 
+                                    echo get_field('date_de_debut' , $projet->ID); 
+                                } else { echo '-'; } 
+                                ?>
+                            </td>
+                            <td>
+                                <?php 
+                                if(get_field('date_de_fin' , $projet->ID)) { 
+                                    echo get_field('date_de_fin' , $projet->ID);
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </td>
                             <td class="text-center"><?php if(get_field('sedoo_project_url_project_mission' , $projet->ID)) { echo '<a href="'.get_field('sedoo_project_url_project_mission' , $projet->ID).'"><span class="dashicons dashicons-admin-links"></span></a>'; } else { echo '-'; } ?></td>
                         </tr>
                         <?php 
