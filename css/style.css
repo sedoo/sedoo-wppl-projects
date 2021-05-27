@@ -28,10 +28,10 @@
 }
 
 .proj_status.com_up {
-    background: #7DBF3B;
+    background: #DD9946;
 }
 .proj_status.ongoing {
-    background: #DD9946;
+    background: #7DBF3B;
 }
 .proj_status.finish {
     background: #E25B3D;
