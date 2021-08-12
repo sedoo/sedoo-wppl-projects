@@ -47,7 +47,7 @@ if($thematiques) {
 $args = array(
     'post_type'             => $cpt_names_project,
     'post_status'           => array( 'publish' ),
-    'limit'                 => $limite
+    'posts_per_page'        => $limite
     );
 
 if(!empty($tax_query)) {
