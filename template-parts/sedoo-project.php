@@ -49,7 +49,7 @@ $args = array(
     'post_status'           => array( 'publish' ),
     'posts_per_page'        => $limite,
     'orderby'               => 'title',
-    'order'                 => 'DESC',
+    'order'                 => 'ASC',
     );
 
 if(!empty($tax_query)) {
