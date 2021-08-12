@@ -47,7 +47,9 @@ if($thematiques) {
 $args = array(
     'post_type'             => $cpt_names_project,
     'post_status'           => array( 'publish' ),
-    'posts_per_page'        => $limite
+    'posts_per_page'        => $limite,
+    'orderby'               => 'title',
+    'order'                 => 'DESC',
     );
 
 if(!empty($tax_query)) {
