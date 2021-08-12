@@ -81,7 +81,7 @@ msgstr "Projets en lien"
 
 #. Name of the plugin
 msgid "Sedoo - Projects"
-msgstr "Projets"
+msgstr "Sedoo - Projets"
 
 #: template-parts/content-page.php:86
 msgid "Since"
