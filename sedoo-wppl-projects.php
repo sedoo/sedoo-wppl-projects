@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sedoo - Projects
  * Description: Gestion des projets
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Nicolas Gruwe & Pierre Vert - SEDOO OMP
  * GitHub Plugin URI: sedoo/sedoo-wppl-projects
  * GitHub Branch:  master
