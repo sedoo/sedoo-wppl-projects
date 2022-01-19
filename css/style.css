@@ -107,3 +107,8 @@ text-decoration: none;
 .project-sidebar section {
     margin-bottom: 15px;
 }
+
+.sedoo-project-section-urls a {
+    display: block;
+    margin-bottom: 10px;
+}
