@@ -14,6 +14,7 @@ global $taxo_names_offre_services;
 $nom_long = get_field('sedoo_project_nom_long');
 $site_web = get_field('sedoo_project_site_du_projet');
 $url_data_access = get_field('sedoo_project_url_data_access');
+$url_dmp = get_field('sedoo_project_url_dmp');
 $url_project_mission = get_field('sedoo_project_url_project_mission');
 $logo_url = get_field('sedoo_project_logo');
 ?>
@@ -93,18 +94,21 @@ $logo_url = get_field('sedoo_project_logo');
 					?>
 				</section>
 					<?php 
-						if($url_data_access || $url_project_mission) {
+						if($url_data_access || $url_project_mission || $url_dmp) {
 							echo '<section class="sedoo-project-section-urls">';
 							echo '<h2> URL </h2>';
 						}
 						if($url_data_access) {
 							echo '<a href="'.$url_data_access.'">'.__( 'Data access', 'sedoo-wppl-projects' ). '</a>';
 						}
+						if($url_dmp) {
+							echo '<a href="'.$url_dmp.'">'.__( 'DMP', 'sedoo-wppl-projects' ). '</a>';
+						}
 						if($url_project_mission) {
 							echo '<a href="'.$url_project_mission.'">'.__( 'Official website', 'sedoo-wppl-projects' ). '</a>';	
 						}
 
-						if($url_data_access || $url_project_mission) {	
+						if($url_data_access || $url_project_mission || $url_dmp) {	
 							echo '</section>';
 						}
 					?>
