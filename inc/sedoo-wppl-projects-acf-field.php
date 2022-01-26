@@ -61,6 +61,22 @@ if( function_exists('acf_add_local_field_group') ):
                 'placeholder' => '',
             ),
             array(
+                'key' => 'field_5fc7760a1a1be',
+                'label' => 'URL DMP',
+                'name' => 'sedoo_project_url_dmp',
+                'type' => 'url',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+            ),
+            array(
                 'key' => 'field_5fc7760a1a2bd',
                 'label' => 'URL official project / mission',
                 'name' => 'sedoo_project_url_project_mission',
