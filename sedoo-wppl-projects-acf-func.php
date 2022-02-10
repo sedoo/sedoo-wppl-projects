@@ -295,6 +295,7 @@ function sedoo_wppl_project_load_taxo_template($taxo_template) {
 	global $taxo_names_typologie;
 	global $taxo_names_highlights;
 	global $taxo_names_thematiques;
+	global $taxo_names_offre_services;
 	if(is_tax($taxo_names_thematiques) || is_tax($taxo_names_typologie) || is_tax($taxo_names_offre_services)) {
 		$taxo_template = plugin_dir_path( __FILE__ ) . 'taxonomie-template.php';
 	}
