@@ -170,7 +170,7 @@ function sedoo_project_display_list_of_projects($projects, $term) { ?>
                                 }
                                 ?>
                             </td>
-                            <td class="text-center"><?php if(get_field('sedoo_project_url_data_access' , $projet->ID)) { echo '<a href="'.get_field('sedoo_project_url_project_mission' , $projet->ID).'"><span class="dashicons dashicons-admin-links"></span></a>'; } else { echo '-'; } ?></td>
+                            <td class="text-center"><?php if(get_field('sedoo_project_url_data_access' , $projet->ID)) { echo '<a href="'.get_field('sedoo_project_url_data_access' , $projet->ID).'"><span class="dashicons dashicons-admin-links"></span></a>'; } else { echo '-'; } ?></td>
                         </tr>
                         <?php 
                         }
