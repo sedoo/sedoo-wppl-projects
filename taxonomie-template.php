@@ -116,7 +116,7 @@ get_header();
         if ($ongoing_sideprojects || $finished_sideprojects) {
             ///////
             /// SHOW SIDE PROJECTS
-            echo secondary_table_header();
+            echo sedoo_project_secondary_table_header();
             echo sedoo_project_display_secondary_projects($ongoing_sideprojects);
             echo sedoo_project_display_secondary_projects($finished_sideprojects);
 
