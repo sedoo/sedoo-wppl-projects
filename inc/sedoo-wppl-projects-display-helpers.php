@@ -81,7 +81,7 @@ function sedoo_project_display_secondary_projects($projects)
     return $res;
 }
 
-function secondary_table_header()
+function sedoo_project_secondary_table_header()
 {
     $res = "";
     $res .= "<h2>";
