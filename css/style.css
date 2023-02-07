@@ -112,3 +112,7 @@ text-decoration: none;
     display: block;
     margin-bottom: 10px;
 }
+
+.sedoo-project-text-center {
+    text-align: center;
+}
