@@ -64,15 +64,15 @@ function sedoo_project_display_secondary_projects($projects)
         } else {
             $res .= '-';
         }
-        $res .= "</td><td>";
+        $res .= '</td><td class="sedoo-project-text-center">';
         if (get_field('date_de_fin', $project->ID)) {
             $res .= get_field('date_de_fin', $project->ID);
         } else {
             $res .= '-';
         }
-        $res .= '</td><td class="text-center">';
+        $res .= '</td><td class="sedoo-project-text-center">';
         if (get_field('sedoo_project_url_data_access', $project->ID)) {
-            $res .= '<a href="' . get_field('sedoo_project_url_data_access', $project->ID) . '"><span class="dashicons dashicons-admin-links"></span></a>';
+            $res .= '<a href="' . get_field('sedoo_project_url_data_access', $project->ID) . '"><span class="material-icons">link</span></a>';
         } else {
             $res .= '-';
         }
@@ -83,9 +83,12 @@ function sedoo_project_display_secondary_projects($projects)
 
 function sedoo_project_secondary_table_header()
 {
+    $term = get_queried_object();
+    $secondary_title = get_field('sedoo_project_label_other_projects_override', $term) ? get_field('sedoo_project_label_other_projects_override', $term) :
+        get_field('label_others_projects', 'options');
     $res = "";
     $res .= "<h2>";
-    $res .= get_field('label_others_projects', 'options');
+    $res .= $secondary_title;
     $res .= '</h2><table class="taxo_project_table"><tbody><tr><th>';
     $res .= __('Name', 'sedoo-wppl-projects');
     $res .= "</th><th>";

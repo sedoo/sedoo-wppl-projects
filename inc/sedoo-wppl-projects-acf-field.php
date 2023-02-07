@@ -435,10 +435,6 @@ if( function_exists('acf_add_local_field_group') ):
         'description' => '',
     ));
 
-endif;
-
-
-
 //
 //// Fields on the projects setting page
 ///
@@ -486,4 +482,66 @@ acf_add_local_field_group(array(
 	'description' => '',
 ));
 
+
+//
+//// Field for taxonomies under projects : secondary projects title
+///  Overrides the label_others_projects of the global project settings page
+acf_add_local_field_group(array(
+	'key' => 'group_63e258bf4aae3',
+	'title' => 'Label other projects',
+	'fields' => array(
+		array(
+			'key' => 'field_63e2591e4ef4a',
+			'label' => 'Label other projects',
+			'name' => 'sedoo_project_label_other_projects_override',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 'Others projects',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'taxonomy',
+				'operator' => '==',
+				'value' => 'sedoo_wppl_projects_taxo_high',
+			),
+		),
+		array(
+			array(
+				'param' => 'taxonomy',
+				'operator' => '==',
+				'value' => 'sedoo_wppl_projects_taxo_thema',
+			),
+		),
+		array(
+			array(
+				'param' => 'taxonomy',
+				'operator' => '==',
+				'value' => 'sedoo_wppl_projects_taxo_typo',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+endif;
 ?>
