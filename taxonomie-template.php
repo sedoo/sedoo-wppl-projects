@@ -55,10 +55,20 @@ get_header();
             'numberposts' => -1,
             'post_type'   => 'sedoo_wppl_project',
             'meta_query' => array(
+                'relation' => 'AND',
                 array(
                     'key' => 'sedoo_project_type_of_project',
                     'value' => 'secondaire',
-                )
+                ),
+                'date_de_fin' => array(
+                    'key' => 'date_de_fin',
+                    'value'   => null,
+                    'compare' => 'IN'
+                ),
+                'date_de_debut' => array(
+                    'key' => 'date_de_debut',
+                    'compare' => 'EXISTS',
+                ),
             ),
             'tax_query' => array(
                 array(
@@ -67,16 +77,9 @@ get_header();
                     'terms' => get_queried_object()->term_id // Where term_id of Term 1 is "1".
                 )
             ),
-            'meta_key' => 'date_de_fin',
             'meta_key' => 'date_de_debut',
-            'meta_query' => array(
-                array(
-                    'key'     => 'date_de_fin',
-                    'value'   => null,
-                    'compare' => 'IN',
-                ),
-            ),
-            'orderby' => array('date_de_debut' => 'DESC')
+            'orderby' => 'meta_value',
+            'order' => 'DESC'
         );
 
         $finished_args =
@@ -112,7 +115,7 @@ get_header();
             );
         $finished_sideprojects = get_posts($finished_args);
         $ongoing_sideprojects = get_posts($ongoing_args);
-
+        
         if ($ongoing_sideprojects || $finished_sideprojects) {
             ///////
             /// SHOW SIDE PROJECTS
